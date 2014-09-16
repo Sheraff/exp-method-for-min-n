@@ -32,6 +32,9 @@ header {
 	top: 0;
 	width: 100%;
 }
+td.label{
+	width: 25%;
+}
 
 main{
 
@@ -52,8 +55,32 @@ button:focus, input:focus{
 	outline: 0;
 }
 
-.textbox input{
+.scale div{
 	border: solid 1px black;
+	border-radius: 2px;
+	cursor: crosshair;
+	padding: 2px;
+	width: 300px;
+	margin: 0 auto;
+}
+.scale div span{
+	height: 3em;
+	width: 100%;
+	display: block;
+	background-color: black;
+	border-radius: 2px;
+}
+
+.textbox div{
+	border: solid 1px black;
+	border-radius: 2px;
+	padding: 2px;
+	width: 300px;
+	margin: 0 auto;
+}
+.textbox input{
+	border: none;
+	width: 100%;
 	padding: 1em;
 	border-radius: 2px;
 

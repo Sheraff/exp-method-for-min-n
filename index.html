@@ -19,7 +19,7 @@
 	</div>
 	<div id="input" class="points"> <!-- points -->
 		<table><tr>
-			<td>
+			<td class="label">
 				<span>Minimum</span>
 			</td><td>
 				<button value="1"><span></span></button>
@@ -35,14 +35,14 @@
 				<button value="6"><span></span></button>
 			</td><td>
 				<button value="7"><span></span></button>
-			</td><td>
+			</td><td class="label">
 				<span>Maximum</span>
 			</td>
 		</tr></table>
 	</div>
 	<div id="input" class="points labeled"> <!-- points -->
 		<table><tr>
-			<td>
+			<td class="label">
 				<span>Minimum</span>
 			</td><td>
 				<button id="b1" value="1"><span></span><label for="b1">1</label></button>
@@ -56,7 +56,7 @@
 				<button id="b5" value="5"><span></span><label for="b5">5</label></button>
 			</td><td>
 				<button id="b6" value="6"><span></span><label for="b6">6</label></button>
-			</td><td>
+			</td><td class="label">
 				<span>Maximum</span>
 			</td>
 		</tr></table>
@@ -64,10 +64,10 @@
 	<div id="input" class="textbox"> <!-- free number input -->
 		<table><tr>
 			<td>
-				<input type="text" autofocus>
+				<div><input type="text" autofocus></div>
 			</td>
 		</tr></table>
-		<script type="text/javascript">
+		<script>
 			var input = document.getElementsByClassName('textbox')[0].getElementsByTagName('input')[0];
 			input.addEventListener('keypress', function(event){
 				var code = (event.keyCode ? event.keyCode : event.which);
@@ -81,10 +81,34 @@
 	</div>
 	<div id="input" class="scale"> <!-- scale -->
 		<table><tr>
-			<td>
-				<input type="text" autofocus>
+			<td class="label">
+				<span>No</span>
+			</td><td>
+				<div><span></span></div>
+			</td><td class="label">
+				<span>Yes</span>
 			</td>
 		</tr></table>
+		<script>
+		var scaleDiv = document.getElementsByClassName('scale')[0].getElementsByTagName('div')[0];
+		var scaleGauge = scaleDiv.getElementsByTagName('span')[0];
+		var value = 0;
+		scaleGauge.style.width = value+"%";
+		var left = scaleDiv.getBoundingClientRect().left + 2;
+		var size = - left + (scaleDiv.getBoundingClientRect().right - 3);
+		scaleDiv.addEventListener('mousemove', function(event) {
+			value = (event.pageX-left)/size*100;
+			value = value>100?100:value;
+			value = value<0?0:value;
+			scaleGauge.style.width = value+"%";
+		}, false);
+		scaleDiv.addEventListener('mouseleave', function (event) {
+			if(event.pageX-left<0) value = 0;
+			if(event.pageX-left>size) value = 100;
+			scaleGauge.style.width = value+"%";
+		}, false);
+
+		</script>
 	</div>
 </main>
 <footer>
