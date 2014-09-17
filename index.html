@@ -79,7 +79,7 @@
 			}, false);
 		</script>
 	</div>
-	<div id="input" class="scale"> <!-- scale -->
+	<div id="input" class="scale" data-start="50"> <!-- scale -->
 		<table><tr>
 			<td class="label">
 				<span>No</span>
@@ -90,12 +90,13 @@
 			</td>
 		</tr></table>
 		<script>
-		var scaleDiv = document.getElementsByClassName('scale')[0].getElementsByTagName('div')[0];
+		var scaleDiv = document.getElementsByClassName('scale')[0];
+		var value = scaleDiv.getAttribute("data-start");
+		var scaleDiv = scaleDiv.getElementsByTagName('div')[0];
 		var scaleGauge = scaleDiv.getElementsByTagName('span')[0];
-		var value = 0;
 		scaleGauge.style.width = value+"%";
-		var left = scaleDiv.getBoundingClientRect().left + 2;
-		var size = - left + (scaleDiv.getBoundingClientRect().right - 3);
+		var left = scaleDiv.getBoundingClientRect().left + 0;
+		var size = - left + (scaleDiv.getBoundingClientRect().right - 1);
 		scaleDiv.addEventListener('mousemove', function(event) {
 			value = (event.pageX-left)/size*100;
 			value = value>100?100:value;
