@@ -1,70 +1,83 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Experiment</title>
-<link rel="stylesheet" href="s.css">
+<link rel='stylesheet' href='s.css'>
 
 <!-- <header>
 	<p>This sentence gives direction.</p>
 </header> -->
 <main>
-	<!-- <p>Which employee did Noah learn whether Lily dismissed?</p> -->
-	<div id="input" class="yes-no"> <!-- yes / no -->
+	<div id='input' class='button'> <!-- yes / no -->
 		<table><tr>
 			<td>
-				<button value="No"><span>No</span></button>
-			</td><td>
-				<button value="Yes"><span>Yes</span></button>
+				<button><span>Next</span></button>
 			</td>
 		</tr></table>
 	</div>
-	<div id="input" class="points"> <!-- points -->
+	<div id='input' class='checkbox'> <!-- yes / no -->
 		<table><tr>
-			<td class="label">
+			<td>
+				<input type='checkbox'><span>I agree</span>
+			</td>
+		</tr></table>
+	</div>
+	<div id='input' class='button'> <!-- yes / no -->
+		<table><tr>
+			<td>
+				<button value='No'><span>No</span></button>
+			</td><td>
+				<button value='Yes'><span>Yes</span></button>
+			</td>
+		</tr></table>
+	</div>
+	<div id='input' class='points'> <!-- points -->
+		<table><tr>
+			<td class='label'>
 				<span>Minimum</span>
 			</td><td>
-				<button value="1"><span></span></button>
+				<button value='1'><span></span></button>
 			</td><td>
-				<button value="2"><span></span></button>
+				<button value='2'><span></span></button>
 			</td><td>
-				<button value="3"><span></span></button>
+				<button value='3'><span></span></button>
 			</td><td>
-				<button value="4"><span></span></button>
+				<button value='4'><span></span></button>
 			</td><td>
-				<button value="5"><span></span></button>
+				<button value='5'><span></span></button>
 			</td><td>
-				<button value="6"><span></span></button>
+				<button value='6'><span></span></button>
 			</td><td>
-				<button value="7"><span></span></button>
-			</td><td class="label">
+				<button value='7'><span></span></button>
+			</td><td class='label'>
 				<span>Maximum</span>
 			</td>
 		</tr></table>
 	</div>
-	<div id="input" class="points labeled"> <!-- points -->
+	<div id='input' class='points labeled'> <!-- points -->
 		<table><tr>
-			<td class="label">
+			<td class='label'>
 				<span>Minimum</span>
 			</td><td>
-				<button id="b1" value="1"><span></span><label for="b1">1</label></button>
+				<button id='b1' value='1'><span></span><label for='b1'>1</label></button>
 			</td><td>
-				<button id="b2" value="2"><span></span><label for="b2">2</label></button>
+				<button id='b2' value='2'><span></span><label for='b2'>2</label></button>
 			</td><td>
-				<button id="b3" value="3"><span></span><label for="b3">3</label></button>
+				<button id='b3' value='3'><span></span><label for='b3'>3</label></button>
 			</td><td>
-				<button id="b4" value="4"><span></span><label for="b4">4</label></button>
+				<button id='b4' value='4'><span></span><label for='b4'>4</label></button>
 			</td><td>
-				<button id="b5" value="5"><span></span><label for="b5">5</label></button>
+				<button id='b5' value='5'><span></span><label for='b5'>5</label></button>
 			</td><td>
-				<button id="b6" value="6"><span></span><label for="b6">6</label></button>
-			</td><td class="label">
+				<button id='b6' value='6'><span></span><label for='b6'>6</label></button>
+			</td><td class='label'>
 				<span>Maximum</span>
 			</td>
 		</tr></table>
 	</div>
-	<div id="input" class="textbox"> <!-- free number input -->
+	<div id='input' class='textbox'> <!-- free number input -->
 		<table><tr>
 			<td>
-				<div><input type="text" autofocus></div>
+				<div><input type='text' autofocus></div>
 			</td>
 		</tr></table>
 		<script>
@@ -79,43 +92,55 @@
 			}, false);
 		</script>
 	</div>
-	<div id="input" class="scale" data-start="50"> <!-- scale -->
+	<div id='input' class='scale' data-start='50'> <!-- scale -->
 		<table><tr>
-			<td class="label">
+			<td class='label'>
 				<span>No</span>
 			</td><td>
 				<div><span></span></div>
-			</td><td class="label">
+			</td><td class='label'>
 				<span>Yes</span>
 			</td>
 		</tr></table>
 		<script>
 		var scaleDiv = document.currentScript.parentNode;
-		var value = scaleDiv.getAttribute("data-start");
+		var value = scaleDiv.getAttribute('data-start');
 		var scaleDiv = scaleDiv.getElementsByTagName('div')[0];
 		var scaleGauge = scaleDiv.getElementsByTagName('span')[0];
-		scaleGauge.style.width = value+"%";
+		scaleGauge.style.width = value+'%';
 		var left = scaleDiv.getBoundingClientRect().left + 0;
 		var size = - left + (scaleDiv.getBoundingClientRect().right - 1);
 		scaleDiv.addEventListener('mousemove', function(event) {
 			value = (event.pageX-left)/size*100;
 			value = value>100?100:value;
 			value = value<0?0:value;
-			scaleGauge.style.width = value+"%";
+			scaleGauge.style.width = value+'%';
 		}, false);
 		scaleDiv.addEventListener('mouseleave', function (event) {
 			if(event.pageX-left<0) value = 0;
 			if(event.pageX-left>size) value = 100;
-			scaleGauge.style.width = value+"%";
+			scaleGauge.style.width = value+'%';
 		}, false);
 
 		</script>
 	</div>
 </main>
 <footer>
-	<div id="progress"><div class="" style="width: 20%;"><span>2/10</span></div></div>
+	<div id='progress' data-steps='10' data-progress='8'><div><span></span></div>
+		<script>
+			var progress = document.currentScript.parentNode;
+			var step = progress.getAttribute('data-progress');
+			var steps = progress.getAttribute('data-steps');
+			var progress_bar = progress.getElementsByTagName('div')[0];
+			var label = progress.getElementsByTagName('span')[0];
+			var advancement = 100*step/steps;
+			progress_bar.style.width = advancement+'%';
+			if(advancement>50){progress_bar.className = 'left';};
+			label.innerHTML = step + '/' + steps;
+		</script>
+	</div>
 </footer>
 
-<!-- <script src="s.js"></script> -->
+<!-- <script src='s.js'></script> -->
 
 <!-- yes no -->
