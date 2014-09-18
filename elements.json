@@ -1,0 +1,70 @@
+{
+	"title": "Default title",
+	"progress_bar": "<div id='progress' data-run='progress' data-steps='{nb_of_steps}' data-progress='{progress}'><div><span></span></div></div>",
+	"input_method": "{yes_no}",
+	"single_button": "<div class='input button'>
+		<table><tr>
+			<td>
+				<button><span>{button_text}</span></button>
+			</td>
+		</tr></table>
+	</div>",
+	"checkbox": "<div class='input checkbox'> <!-- checkbox -->
+		<table><tr>
+			<td>
+				<input type='checkbox'><span>{check_text}</span>
+			</td>
+		</tr></table>
+	</div>",
+	"numberbox": "<div class='input textbox' data-run='numberbox'>
+		<table><tr>
+			<td>
+				<div><input type='text' autofocus></div>
+			</td>
+		</tr></table>
+	</div>",
+	"scalebar": "<div class='input scale' data-run='scale' data-start='{scalebar_start_point}'>
+		<table><tr>
+			<td class='label'>
+				<span>No</span>
+			</td><td>
+				<div><span></span></div>
+			</td><td class='label'>
+				<span>Yes</span>
+			</td>
+		</tr></table>
+	</div>",
+	"scalebar_start_point": "50",
+	"yes_no": "<div class='input button'> <!-- yes / no -->
+		<table><tr>
+			<td>
+				<button value='No'><span>No</span></button>
+			</td><td>
+				<button value='Yes'><span>Yes</span></button>
+			</td>
+		</tr></table>
+	</div>",
+	"7points": "<div class='input points'> <!-- points -->
+		<table><tr>
+			<td class='label'>
+				<span>Minimum</span>
+			</td><td>
+				<button value='1'><span></span></button>
+			</td><td>
+				<button value='2'><span></span></button>
+			</td><td>
+				<button value='3'><span></span></button>
+			</td><td>
+				<button value='4'><span></span></button>
+			</td><td>
+				<button value='5'><span></span></button>
+			</td><td>
+				<button value='6'><span></span></button>
+			</td><td>
+				<button value='7'><span></span></button>
+			</td><td class='label'>
+				<span>Maximum</span>
+			</td>
+		</tr></table>
+	</div>"
+}

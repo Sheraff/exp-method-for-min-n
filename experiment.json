@@ -1,0 +1,29 @@
+[{
+	"template": "simple",
+	"title": "Consent form",
+	"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi in, id sint quasi labore quibusdam illum iusto, obcaecati consectetur voluptas repellat accusantium laudantium laboriosam ipsa illo adipisci, tempora optio aliquam!",
+	"input": "{checkbox}",
+	"check_text": "I agree"
+},{
+	"template": "simple",
+	"title": "Explanation",
+	"text": "In this experiment, you will have to consectetur adipisicing elit. Excepturi in, id sint quasi labore quibusdam illum iusto, obcaecati consectetur voluptas repellat accusantium laudantium laboriosam ipsa illo adipisci, tempora optio aliquam!",
+	"input": "{single_button}",
+	"button_text": "Next"
+},{
+	"title": "First title",
+	"sentence": "Which employee did Noah learn whether Lily dismissed?",
+	"input_method": "{numberbox}"
+},{
+	"title": "First title",
+	"sentence": "Sample sentence to be shown to the subject",
+	"input_method": "{scalebar}"
+}, {
+	"sentence": "I can just add anything anywhere, as long as it's defined in `elements.json`",
+	"input_method": "{yes_no}"
+}, {
+	"title": "Second title",
+	"sentence": "In this sentence, one {recurring} is added by recurrence.",
+	"recurring": "word",
+	"input_method": "{7points}",
+}]
