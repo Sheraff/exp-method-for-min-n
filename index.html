@@ -68,7 +68,7 @@
 			</td>
 		</tr></table>
 		<script>
-			var input = document.getElementsByClassName('textbox')[0].getElementsByTagName('input')[0];
+			var input = document.currentScript.parentNode.getElementsByTagName('input')[0];
 			input.addEventListener('keypress', function(event){
 				var code = (event.keyCode ? event.keyCode : event.which);
 				if(!(code >= 48 && code <= 57))
@@ -90,7 +90,7 @@
 			</td>
 		</tr></table>
 		<script>
-		var scaleDiv = document.getElementsByClassName('scale')[0];
+		var scaleDiv = document.currentScript.parentNode;
 		var value = scaleDiv.getAttribute("data-start");
 		var scaleDiv = scaleDiv.getElementsByTagName('div')[0];
 		var scaleGauge = scaleDiv.getElementsByTagName('span')[0];
@@ -116,6 +116,6 @@
 	<div id="progress"><div class="" style="width: 20%;"><span>2/10</span></div></div>
 </footer>
 
-<script src="s.js"></script>
+<!-- <script src="s.js"></script> -->
 
 <!-- yes no -->

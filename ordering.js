@@ -1,3 +1,14 @@
+/*
+
+This algorithm is used to generate the order in which items of an experiment will appear to a subject. The setup we assume here is the following:
+There are phenomenons (9) — each representing an experiment — within which you find several conditions (4) for each iteration of the experiment (5). Within one "block" of items (9*4=36), we will present all conditions for all phenomenons from a single iteration. Between two items of the same phenomenon (varying only the iteration and the condition), we want to insert a minimum number of fillers (4) — ie. of items from other phenomenons — even across "blocks".
+In order to obtain such a setup in an unbiased fashion, we proceed separately for each dimension:
+ - the order of "blocks", ie. iterations, is simply obtained by shuffling the array representing all iterations with the Fisher–Yates shuffle algorithm. (http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
+ - the order of the phenomenons has to be determined directly across the whole experiment because we wish to have a minimum number of "fillers" between two items of the same phenomenon. We create an array of all possible elements (all phenomenons times all conditions) for a block and iteratively randomly pick one out of all possible choices (meaning that before every pick, we exclude all the items that come from the same phenomenon as the 4 (minimum number of fillers required) previous items). Such procedure can (with a very small probability) reach a "dead-end" where all possible remaining items for the current block have to be excluded because of the minimum number of fillers required. In such a case, we discard the generated block and start over. The generation of the full list (iterations * phenomenons * conditions) will take less than a millisecond for up to 500 items on most computers.
+ - the order of the conditions is determined for each phenomenon in each iteration in the same fashion as the order of the iterations: a Fisher–Yates shuffle of an array representing all conditions.
+
+*/
+
 // 	5 blocks (num)
 //		in each block, 9 phenomenons appear 4 times (conditions)
 //		two CONDITIONS of the same PHENOMENON must be separated by at least 4 instances of different phenomenons
